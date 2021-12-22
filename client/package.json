@@ -1,0 +1,12 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "The front end for a simple web app to help users discover complete plant proteins.",
+  "main": "index.js",
+  "repository": "https://github.com/jimmyceroneii/complete-plant-protein.git",
+  "author": "jimmyceroneii",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^2.0.1"
+  }
+}
