@@ -1,5 +1,6 @@
 import React from "react";
+import { PlantList } from "./components/plants/PlantList";
 
 export const App: React.FC = () => {
-	return (<h1>Hello world!</h1>);
+	return (<PlantList />);
 }
