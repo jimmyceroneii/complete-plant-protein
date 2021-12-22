@@ -73,7 +73,7 @@ typings/
 .env.test
 
 # parcel-bundler cache (https://parceljs.org/)
-.cache
+client/.parcel-cache
 
 # Next.js build output
 .next
@@ -82,7 +82,7 @@ typings/
 .nuxt
 dist
 
-dist/
+/client/dist/
 
 # Gatsby files
 .cache/
