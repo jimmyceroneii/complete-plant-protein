@@ -9,6 +9,9 @@
   "devDependencies": {
     "parcel": "^2.0.1"
   },
+  "scripts": { 
+    "dev": "yarn parcel src/index.html"
+  },
   "dependencies": {
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
