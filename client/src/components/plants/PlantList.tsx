@@ -7,7 +7,7 @@ export const plantToProteinMap: PlantToProtein = {
 };
 
 export const PlantList: React.FC = () => {
-  // TODO: Fix the order of operations but in that setProteins is running before setProteinCount is completed
+  // TODO: Implement tailwind first to give yourself a mental break from algorithms and data structures
   const allPlants = ["bean", "rice"];
   const [checked, setChecked] = useState<string[]>(["bean"]);
   const [proteins, setProteins] = useState<EssentialProtein[]>(["Histidine"]);
@@ -30,14 +30,15 @@ export const PlantList: React.FC = () => {
             copy[proteinIndex] += 1;
           });
 
+          setProteins((x) => {
+            const uncleanedProteins = plantToProteinMap[event.target.value];
+            const newProteins = uncleanedProteins.filter(
+              (potentialProtein) => !x.includes(potentialProtein)
+            );
+            return [...x, ...newProteins];
+          });
+
           return copy;
-        });
-        setProteins((x) => {
-          const uncleanedProteins = plantToProteinMap[event.target.value];
-          const newProteins = uncleanedProteins.filter(
-            (potentialProtein) => !x.includes(potentialProtein)
-          );
-          return [...x, ...newProteins];
         });
       } else {
         setChecked((x) => {
@@ -49,8 +50,6 @@ export const PlantList: React.FC = () => {
         setProteinCount((x) => {
           const proteins = plantToProteinMap[event.target.value];
 
-          console.log("Proteins: ", proteins);
-
           const copy = x;
 
           proteins.map((protein) => {
@@ -59,18 +58,15 @@ export const PlantList: React.FC = () => {
             copy[proteinIndex] -= 1;
           });
 
-          console.log("Copy: ", copy);
+          setProteins((y) => {
+            return y.filter((protein) => {
+              const proteinIndex = enumToProteinMap[protein];
+
+              return copy[proteinIndex] !== 0;
+            });
+          });
 
           return copy;
-        });
-        setProteins((x) => {
-          return x.filter((protein) => {
-            const proteinIndex = enumToProteinMap[protein];
-
-            console.log("Protein Count: ", proteinCount);
-
-            return proteinCount[proteinIndex] === 0;
-          });
         });
       }
     },
