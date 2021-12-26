@@ -19,13 +19,19 @@
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "eslint": "^8.5.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "jest": "^27.4.5",
     "parcel": "^2.0.1",
     "ts-jest": "^27.1.2"
   },
   "scripts": {
     "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css && yarn parcel src/index.html",
-    "test": "jest"
+    "test": "jest",
+    "lint": "npx eslint src/*"
   },
   "dependencies": {
     "@types/react": "^17.0.37",
