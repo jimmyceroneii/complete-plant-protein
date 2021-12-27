@@ -26,13 +26,13 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Runs yarn to get everything setup
-        run: yarn
+        run: cd client && yarn
 
       - name: Runs lint to make sure everything looks ok
         run: npx eslint client/src/*
         
       - name: Runs the tests for the client
-        run: yarn test
+        run: cd client && yarn test
         
       - name: Builds the front end to make sure everything works ok
-        run: yarn dev
+        run: cd client && yarn dev
