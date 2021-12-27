@@ -74,6 +74,7 @@ export const PlantList: React.FC = () => {
           <input
             value={plant}
             type='checkbox'
+            data-cy={`check-box-${plant}`}
             onChange={handleCheck}
             checked={checked.includes(plant)}
           />

@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "strict": true,
     "jsx": "react",
-    "esModuleInterop": true
-  }
+    "esModuleInterop": true,
+    "types": ["jest"],
+    "noEmit": true
+  },
+  "include": ["src/*.ts"],
+  "exclude": ["src/*.test.ts"]
 }
