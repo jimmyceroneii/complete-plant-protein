@@ -2,7 +2,6 @@
   "name": "client",
   "version": "1.0.0",
   "description": "The front end for a simple web app to help users discover complete plant proteins.",
-  "main": "index.js",
   "repository": "https://github.com/jimmyceroneii/complete-plant-protein.git",
   "author": "jimmyceroneii",
   "license": "MIT",
@@ -10,28 +9,33 @@
     "transform": {
       ".(ts|tsx)": "ts-jest"
     },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testRegex": "(/__tests__/.*|\\.(test))\\.(ts)$",
     "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
+      "ts"
     ]
   },
   "devDependencies": {
+    "@types/cypress": "^1.1.3",
     "@types/jest": "^27.0.3",
     "@typescript-eslint/eslint-plugin": "^5.8.0",
     "@typescript-eslint/parser": "^5.8.0",
+    "cypress": "^9.2.0",
     "eslint": "^8.5.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "jest": "^27.4.5",
     "parcel": "^2.0.1",
+    "start-server-and-test": "^1.14.0",
     "ts-jest": "^27.1.2"
   },
   "scripts": {
     "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css && yarn parcel src/index.html",
     "test": "jest",
-    "lint": "npx eslint src/*"
+    "cy:open": "cypress open",
+    "cy:start": "yarn parcel src/index.html",
+    "test:cy": "start-server-and-test cy:start http:/localhost:1234 cy:open",
+    "lint": "npx eslint --project tsconfig.lint.json src/*",
+    "lint:cypress": "npx eslint --project cypress/tsconfig.json"
   },
   "dependencies": {
     "@types/react": "^17.0.37",
