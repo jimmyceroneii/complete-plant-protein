@@ -33,6 +33,3 @@ jobs:
         
       - name: Runs the tests for the client
         run: cd client && yarn test
-        
-      - name: Builds the front end to make sure everything works ok
-        run: cd client && yarn parcel build src/index.html
