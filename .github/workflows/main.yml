@@ -35,4 +35,4 @@ jobs:
         run: cd client && yarn test
         
       - name: Builds the front end to make sure everything works ok
-        run: cd client && yarn dev
+        run: cd client && yarn parcel build index.html --dist-dir ./dist
