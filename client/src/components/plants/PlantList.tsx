@@ -68,22 +68,32 @@ export const PlantList: React.FC = () => {
   }, []);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-      {allPlants.map((plant, index) => (
-        <div key={index}>
-          <input
-            value={plant}
-            type='checkbox'
-            data-cy={`check-box-${plant}`}
-            onChange={handleCheck}
-            checked={checked.includes(plant)}
-          />
-          <span>{plant}</span>
-        </div>
-      ))}
+    <div className='flex flex-row justify-between'>
+      <div className='flex flex-col'>
+        {allPlants.map((plant, index) => (
+          <div
+            key={index}
+            className='flex flex-row bg-slate-200 rounded-md m-2'
+          >
+            <input
+              value={plant}
+              type='checkbox'
+              data-cy={`check-box-${plant}`}
+              onChange={handleCheck}
+              checked={checked.includes(plant)}
+              className='m-2'
+            />
+            <span className='m-2'>{plant}</span>
+          </div>
+        ))}
+      </div>
       <div>
         {proteins &&
-          proteins.map((protein, index) => <p key={index}>{protein}</p>)}
+          proteins.map((protein, index) => (
+            <div className='m-2 bg-green-400 rounded-md' key={protein}>
+              <p key={index}>{protein}</p>
+            </div>
+          ))}
       </div>
     </div>
   );
