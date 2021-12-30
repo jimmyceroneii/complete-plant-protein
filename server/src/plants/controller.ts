@@ -1,4 +1,4 @@
-import { PlantController, PlantRepository } from "./types";
+import { PlantController, PlantRepository } from "./index.ts";
 
 interface ControllerDependencies {
   plantRepository: PlantRepository;
