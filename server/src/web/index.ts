@@ -1,4 +1,4 @@
-import { Application, Router, Server } from "../deps.ts";
+import { Application, Router } from "../deps.ts";
 import { PlantController } from "../plants/index.ts";
 
 interface CreateServerDependencies {

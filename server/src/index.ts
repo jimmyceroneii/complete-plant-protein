@@ -1,14 +1,15 @@
+import { MongoClient } from "./deps.ts";
 import { Controller as PlantController } from "./plants/index.ts";
 import { Repository as PlantRepository } from "./plants/index.ts";
 import { createServer } from "./web/index.ts";
 
-const plantRepository = new PlantRepository();
+const client = new MongoClient();
 
-plantRepository.storage.set("1fbdd2a9-1b97-46e0-b450-62819e5772ff", {
-  id: "1fbdd2a9-1b97-46e0-b450-62819e5772ff",
-  name: "Bean",
-  proteins: ["Histidine"],
-});
+await client.connect("test");
+
+const db = client.database("CompletePlantProtein");
+
+const plantRepository = new PlantRepository({ storage: db });
 
 const plantController = new PlantController({
   plantRepository,
